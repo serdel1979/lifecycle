@@ -1,1 +1,11 @@
-<p>pagina1 works!</p>
+{{ nombre | uppercase }}
+
+<div class="container">
+    <input placeholder="Escribir algo"
+        [(ngModel)]="nombre"
+    >
+</div>
+
+<button (click)="guardar()">
+    Click
+</button>

@@ -10,14 +10,19 @@ implements OnInit, OnChanges, DoCheck,
   AfterContentInit, AfterContentChecked,
   AfterViewInit, AfterViewChecked, OnDestroy {
 
+
+  nombre: string="Sergio";
+
   constructor() {
     console.log('constructor')
   }
 
-
-  ngOnDestroy(): void {
-    console.log('ngOnDestroy');
+  
+  ngOnInit(): void {
+    console.log('ngOninit')
   }
+
+
 
 
   ngAfterViewChecked(): void {
@@ -44,8 +49,15 @@ implements OnInit, OnChanges, DoCheck,
     console.log('ngOnChanges');
   }
 
-  ngOnInit(): void {
-    console.log('ngOninit')
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
   }
+
+
+
+  guardar(){
+
+  }
+
 
 }
