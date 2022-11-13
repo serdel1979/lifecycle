@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pagina1',
@@ -13,13 +14,22 @@ implements OnInit, OnChanges, DoCheck,
 
   nombre: string="Sergio";
 
+  segundos: number = 0;
+
+  timerSubscription!: Subscription;
+
+
   constructor() {
     console.log('constructor')
   }
 
   
   ngOnInit(): void {
-    console.log('ngOninit')
+    console.log('ngOninit');
+
+    this.timerSubscription = interval(1000).subscribe(
+      i=> this.segundos = i
+    )
   }
 
 
@@ -51,6 +61,7 @@ implements OnInit, OnChanges, DoCheck,
 
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
+    this.timerSubscription.unsubscribe();
   }
 
 
